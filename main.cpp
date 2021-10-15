@@ -14,20 +14,8 @@ void readParameter(double &a, double &b, double &c) {
     getNum(c, msg_err);
 }
 
-int main() {
-    std::cout << "Welcome! This program solve quadratic equation." << std::endl;
-    std::cout << "Enter number a, b and c from equation ax^2+bx+c=0" << std::endl;
-    double a, b, c;
-    
-    try {
-        readParameter(a, b, c);
-    } catch (const char s[]) {
-        std::cout << s;
-        return 1;
-    }
+void PutAnswer(std::vector <double> v) {
 
-    std::vector <double> v = computeAnswer(a, b, c);
-    
     std::cout << "Solutions: " << std::endl;
 
     if (v.empty())
@@ -36,5 +24,19 @@ int main() {
         for (double i : v)
             std::cout << i << std::endl;
     
+}
+
+int main() {
+    std::cout << "Welcome! This program solve quadratic equation." << std::endl;
+    std::cout << "Enter number a, b and c from equation ax^2+bx+c=0" << std::endl;
+    double a, b, c;
+    
+    try {
+        readParameter(a, b, c);
+        PutAnswer(computeAnswer(a, b, c));
+    } catch (const char s[]) {
+        std::cout << s;
+        return 1;
+    }
     return 0;
 }
