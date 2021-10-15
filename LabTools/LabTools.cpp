@@ -17,7 +17,7 @@ namespace LabTools {
             }
         }
 
-        throw "Ввода нет";
+        throw "End of file";
     }
 
     void getNum(int &num) {
