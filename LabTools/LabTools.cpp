@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <limits>
 
 namespace LabTools {
 
@@ -52,9 +53,10 @@ namespace LabTools {
 
     void getNum(double &num, char* const str) {
         while (true) {
-            if (std::cin >> num)
+            if (std::cin >> num) {
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');;
                 return;
-            else {
+            } else {
                 std::cout << str << std::endl;
                 skip_to_int();
             }
